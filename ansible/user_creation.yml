@@ -6,6 +6,6 @@
     file: path=/sfm-data state=directory owner={{ deploy_user }} group={{ deploy_user }}
 
   - name: create processing directory
-    file: path=/processing state=directory owner={{ deploy_user }} group={{ deploy_user }}
+    file: path=/sfm-processing state=directory owner={{ deploy_user }} group={{ deploy_user }}
 
 

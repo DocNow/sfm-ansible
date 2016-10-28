@@ -1,4 +1,5 @@
 ---
+# the user deploying
 deploy_user: "vagrant"
 deploy_user_home: "/home/{{ deploy_user }}"
 timezone: "TZ=America/New_York"
