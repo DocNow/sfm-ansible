@@ -7,7 +7,7 @@ timezone: "TZ=America/New_York"
 data_volume: "DATA_VOLUME=/sfm-data:/sfm-data"
 processing_volume: "PROCESSING_VOLUME=/sfm-processing:/sfm-processing"
 # if this is using ansible make it ansible_eth0.ipv4.address
-# you can also change that to IP or hostname 
+# you can also change that to IP or hostname
 sfm_hostname: "SFM_HOSTNAME={{ ansible_eth1.ipv4.address }}"
 sfm_port: "SFM_PORT=8080"
 sfm_smtp_host: "SFM_SMTP_HOST=smtp.gmail.com"
@@ -31,3 +31,7 @@ heritrix_user: "HERITRIX_USER=sfm_user"
 heritrix_password: "HERITRIX_PASSWORD=password"
 heritrix_admin_port: "HERITRIX_ADMIN_PORT=8443"
 heritrix_contact_url: "HERITRIX_CONTACT_URL=http://library.myschool.edu"
+# aws
+instance_type: "t2.micro"
+region: "us-east-1"
+aws_zone: "b"
