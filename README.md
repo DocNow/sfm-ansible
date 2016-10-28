@@ -69,13 +69,13 @@ This assumes you have admin rights on the destination target server.
 
 ## Local VM
 
-In the case of the `vagrant up` option, a VM will be brought up and configured in the current directory. The application is accessible on the local machine from a Web browser at the URI https://192.168.33.10 .
+In the case of the `vagrant up` option, a VM will be brought up and configured in the current directory. The application is accessible on the local machine from a Web browser at the URI http://192.168.33.10 .
 
 You can use vagrant ssh to log in to this VM when it is up. When logged out of the VM, vagrant halt can be used to shut down the VM. The command vagrant destroy will destroy it entirely, requiring another vagrant up to recreate it.
 
 ### Ansible
 
-When using Ansible to provision directly, the playbook will be executed on the server whose IP address is given as IP. When the playbook finishes with no failures, the server is accessible at this URL:
+When using Ansible to provision directly, the playbook will be executed on the server whose IP address is given as IP in the `ansible/hosts` file. When the playbook finishes with no failures, the server is accessible at this URL:
 
 ```
 http://<ip address>
