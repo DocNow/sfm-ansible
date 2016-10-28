@@ -80,3 +80,10 @@ When using Ansible to provision directly, the playbook will be executed on the s
 ```
 http://<ip address>
 ```
+
+### TO DO
+
+- set up unattended playbook for AWS
+
+### LICENSE
+MIT
