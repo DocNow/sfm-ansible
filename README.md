@@ -62,7 +62,7 @@ cp ansible/example_ansible.cfg ansible/ansible.cfg
 ## For Ansible Deployment
 
 ```
-ansible ansible/site.yml -b
+ansible-playbook ansible/site.yml -b
 ```
 
 This assumes you have admin rights on the destination target server.
