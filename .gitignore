@@ -1,0 +1,8 @@
+
+# Vagrant
+.vagrant/
+
+# ansible
+ansible/group_vars/all
+ansible.cfg
+hosts
