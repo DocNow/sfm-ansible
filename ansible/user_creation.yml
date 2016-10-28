@@ -1,0 +1,11 @@
+---
+  - name: add ansible user to docker group
+    user: name={{ deploy_user }} groups=docker append=yes
+
+  - name: create sfm-data directory
+    file: path=/sfm-data state=directory owner={{ deploy_user }} group={{ deploy_user }}
+
+  - name: create processing directory
+    file: path=/processing state=directory owner={{ deploy_user }} group={{ deploy_user }}
+
+

@@ -1,0 +1,10 @@
+---
+  - name: launch docker compose
+    command: docker-compose up -d 
+    args:
+      chdir: "{{ deploy_user_home }}"
+
+  - name: scale twitter harvester
+    command: docker-compose scale twitterrestharvester=2 
+    args:
+      chdir: "{{ deploy_user_home }}"

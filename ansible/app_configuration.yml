@@ -1,0 +1,72 @@
+---
+  - name: get production docker compose file
+    get_url:
+      url: https://github.com/gwu-libraries/sfm-docker/raw/master/example.prod.docker-compose.yml
+      dest: /home/{{ deploy_user }}/docker-compose.yml
+      owner: "{{ deploy_user }}"
+      group: "{{ deploy_user }}"
+
+  - name: get environment file
+    get_url:
+      url: https://github.com/gwu-libraries/sfm-docker/raw/master/example.env
+      dest: /home/{{ deploy_user }}/.env
+      owner: "{{ deploy_user }}"
+      group: "{{ deploy_user }}"
+
+  - name: add variables to env file
+    lineinfile:
+      dest: /home/{{ deploy_user }}/.env
+      regexp: "{{ item.regex }}"
+      line: "{{ item.line }}"
+      state: present
+    with_items:
+      - regex: '^TZ=America/New_York $'
+        line: '{{ timezone }}'
+      - regex: '^DATA_VOLUME=/sfm-data $'
+        line: '{{ data_volume }}'
+      - regex: '^PROCESSING_VOLUME=/sfm-processing $'
+        line: '{{ processing_volume }}'
+      - regex: '^ SFM_HOSTNAME=localhost $'
+        line: '{{ sfm_hostname }}'
+      - regex: '^SFM_PORT=8080 $'
+        line: '{{ sfm_port }}'
+      - regex: '^SFM_SMTP_HOST=smtp.gmail.com $'
+        line: '{{ sfm_smtp_host }}'
+      - regex: '^SFM_EMAIL_USER=someone@gmail.com $'
+        line: '{{ sfm_email_user }}'
+      - regex: '^SFM_EMAIL_PASSWORD=password $'
+        line: '{{ sfm_email_password }}'
+      - regex: '^SFM_SITE_ADMIN_NAME=sfmadmin $'
+        line: '{{ sfm_site_admin_name }}'
+      - regex: '^SFM_SITE_ADMIN_EMAIL=nowhere@example.com $'
+        line: '{{ sfm_site_admin_email }}'
+      - regex: '^SFM_SITE_ADMIN_PASSWORD=password $'
+        line: '{{ sfm_site_admin_password }}'
+      - regex: '^TWITTER_CONSUMER_KEY=mBbq9ruffgEcfsktgQztTHUir8Kn0 $'
+        line: '{{ twitter_consumer_key }}'
+      - regex: '^TWITTER_CONSUMER_SECRET=Pf28yReB9Xgz0fpLVO4b46r5idZnKCKQ6xlOomBAjD5npFEQ6Rm $'
+        line: '{{ twitter_consumer_secret }}'
+      - regex: '^WEIBO_API_KEY=13132044538 $'
+        line: '{{ weibo_api_key }}'
+      - regex: '^WEIBO_API_SECRET=68aea49fg26ea5072ggec14f7c0e05a52 $'
+        line: '{{ weibo_api_secret }}'
+      - regex: '^TUMBLR_CONSUMER_KEY=Fki09cW957y56h6fhRtCnig14QhpM0pjuHbDWMrZ9aPXcsthVQq $'
+        line: '{{ tumblr_consumer_key }}'
+      - regex: '^TUMBLR_CONSUMER_SECRET=aPTpFRE2O7sVl46xB3difn8kBYb7EpnWfUBWxuHcB4gfvP $'
+        line: '{{ tumblr_consumer_secret }}'
+      - regex: '^RABBITMQ_USER=sfm_user $'
+        line: '{{ rabbitmq_user }}'
+      - regex: '^RABBITMQ_PASSWORD=password $'
+        line: '{{ rabbitmq_password }}'
+      - regex: '^RABBITMQ_MANAGEMENT_PORT=15672 $'
+        line: '{{ rabbitmq_management_port }}'
+      - regex: '^POSTGRES_PASSWORD=password $'
+        line: '{{ postgres_password }}'
+      - regex: '^HERITRIX_USER=sfm_user $'
+        line: '{{ heritrix_user }}'
+      - regex: '^HERITRIX_PASSWORD=password $'
+        line: '{{ heritrix_password }}'
+      - regex: '^HERITRIX_ADMIN_PORT=8443 $'
+        line: '{{ heritrix_admin_port }}'
+      - regex: '^HERITRIX_CONTACT_URL=http://library.myschool.edu $'
+        line: '{{ heritrix_contact_url }}'
