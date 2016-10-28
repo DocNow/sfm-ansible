@@ -6,7 +6,7 @@ Ansible playbooks for setting up Social Feed Manager
 
 # Install Scripts for Social Feed Manager
 
-The files are set up [Social Feed Manager](http://gwu-libraries.github.io/sfm-ui) on a target server. They can be used to install the application to a VM under Virtualbox or to a server running Ubuntu Trusty Tahr.
+The files are used to set up [Social Feed Manager](http://gwu-libraries.github.io/sfm-ui) on a target server. They can be used to install the application to a VM under Virtualbox or to a server running Ubuntu Trusty Tahr.
 
 The `vagrant up` command is used to set up the server and deploy the application on the chosen platform.
 
