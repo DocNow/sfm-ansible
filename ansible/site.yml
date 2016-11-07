@@ -11,12 +11,11 @@
     apt_key: keyserver=p80.pool.sks-keyservers.net id=58118E89F3A912897C070ADBF76221572C52609D
 
   - name: add docker repo
-    apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
+    apt_repository: repo={{ xenial_repo }} state=present
 
   - name: install docker
     apt: name={{ item }} state=present update_cache=yes install_recommends=yes
     with_items:
-      - linux-image-extra-virtual
       - docker-engine
       - python-pip
 
