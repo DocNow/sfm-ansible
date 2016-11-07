@@ -6,3 +6,4 @@
 ansible/group_vars/all
 ansible.cfg
 hosts
+*.retry
