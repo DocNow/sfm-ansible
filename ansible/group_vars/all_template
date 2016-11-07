@@ -31,3 +31,6 @@ heritrix_user: "HERITRIX_USER=sfm_user"
 heritrix_password: "HERITRIX_PASSWORD=password"
 heritrix_admin_port: "HERITRIX_ADMIN_PORT=8443"
 heritrix_contact_url: "HERITRIX_CONTACT_URL=http://library.myschool.edu"
+# docker repos
+trusty_repo: "deb https://apt.dockerproject.org/repo ubuntu-trusty main"
+xenial_repo: "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
